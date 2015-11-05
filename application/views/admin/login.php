@@ -80,7 +80,9 @@ dl,dt,dd{
                   <input value="" name="password" type="password" placeholder="请输入密码">
                   <input value="" style="width:25%; float:left;   margin-right:5px;" name="captcha" type="text" placeholder="验证码">
                   
-                  <div style=" float:left;width:65px; margin-right:10px; height:30"><a title="刷新验证码" href="./登录_files/登录.html"><img src="./登录_files/1446642405.5781.jpg" width="65" height="30" style="border:0;" alt=" "></a></div>
+                  <div style=" float:left;width:65px; margin-right:10px; height:30">
+
+                 <img style="cursor:pointer;" onclick=this.src="<?=site_url('login/code').'/'?>"+Math.random() src="<?=site_url('login/code')?>" width="65" height="30" style="border:0;" alt="看不清刷新验证码" title='看不清刷新验证码'></div>
                  
                  <input style="width:90px; margin-left:0px; height:33px;" name="" type="submit" value="登录">
                     

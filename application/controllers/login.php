@@ -15,25 +15,74 @@ class Login extends CI_Controller{
 
    function index(){ 
 
+
+
+       
+
    		$this->load->view('admin/login');
    }
 
 
+   function submit(){ 
+
+
+
+   }
+
+
+
+
+   //表单验证
+
+   function _validation(){
+
+
+
+         return $login=array(
+                                 array(
+
+                                          'field'=>'username',
+                                          'label'=>'用户名',
+                                          'rules'=>'requestd|alpha_dash|max_length[50]',
+                                    ),
+
+                                 array(
+
+                                          'field'=>'password',
+                                          'label'=>'用户密码',
+                                          'rules'=>'requestd|alpha_dash|max_length[32]',
+                                    ),
+
+                                 array(
+
+                                          'field'=>'captcha',
+                                          'label'=>'验证码',
+                                          'rules'=>'requestd|alpha_dash|max_length[4]',
+                                    ),
+            );
+
+   }
+
+//生成验证码
    function code(){ 
 
    			$vals=array(
 
    				'word'=>rand(1000,10000),
-   				'img_path'=>'./staticfile/captcha',
-   				'img_url'=>base_url('staticfile/captcha'),	
-   				'img_width'=>'65',
+   				
+   				
+   				'img_width'=>'80',
    				'expiration'=>7200
 
    				);
 
+
+           
    			$cap=create_captcha($vals);
 
-   			var_dump($cap);
+            echo $cap['image'];
+
+   			
 
 
    }

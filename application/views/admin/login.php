@@ -1,97 +1,219 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- saved from url=(0032)http://pende.com/index.php/login -->
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<title>登录</title>
-<style type="text/css">
-body,td,th {
-	font-family: Verdana, Geneva, sans-serif;
-	font-size: 14px;
-	line-height:25px;
-}
-img {
-  border: 0;
-}
-a {
-	font-size: 14px;
-}
-dl,dt,dd{	
-	padding:0px;
-	margin:0px;
-	list-style-type:none;
-
-}
-
-.wrap{
-}
-.wrap dl{
-	margin:10% auto;
-	width:330px;
-	border:1px solid #CCC;
-	border-top:3px solid #4D7496;
-}
-.title{
-	font-weight:900;
-	font-size:18px;
-	border-bottom:1px solid #ccc;
-	height:40px;
-	line-height:40px;
-	background:url(http://pende.com/staticfile/images/admin/login/logo60x60.png) 10px no-repeat;
-	padding:10px;
-	padding-left:65px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>Cloud Admin | Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- STYLESHEETS --><!--[if lt IE 9]><script src="js/flot/excanvas.min.js"></script><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url('staticfile')?>/css/cloud-admin.css" >
 	
-}
-.wrap dl dd{
-	padding:10px;
-	
-}
-.frm_login{
-	background: url(http://pende.com/staticfile/images/default/login/login_bj.gif) no-repeat;
-	margin-top:10px;
-}
-.frm_login input{
-	height:25px;
-	margin-bottom:10px;
-	_margin-bottom:7px;
-	margin-left:36px;
-	width:80%;
-	line-height:25px;
-	padding-left:10px;
-	padding-right:10px;
-
-}
-.copyr{
-	padding:10px;
-	border-top:2px solid #ccc;
-	height:30px;
-
-}
-
-</style>
+	<link href="<?=base_url('third_party')?>/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<!-- DATE RANGE PICKER -->
+	<link rel="stylesheet" type="text/css" href="<?=base_url('third_party')?>/js/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+	<!-- UNIFORM -->
+	<link rel="stylesheet" type="text/css" href="<?=base_url('third_party')?>/js/uniform/css/uniform.default.min.css" />
+	<!-- ANIMATE -->
+	<link rel="stylesheet" type="text/css" href="<?=base_url('staticfile')?>/css/animatecss/animate.min.css" />
+	<!-- FONTS -->
+	<link href='<?=base_url('staticfile')?>/css/fonts.css' rel='stylesheet' type='text/css'>
 </head>
-
-<body>
-	<div class="wrap">
-    	<dl>
-        	<dt class="title">HXCMS System</dt>
-            <dd>
-                       	  <form class="frm_login" action="http://pende.com/index.php/login/submit" method="post" enctype="application/x-www-form-urlencoded">
-                <input value="" name="username" type="text" placeholder="请输入用户名">
-                  <input value="" name="password" type="password" placeholder="请输入密码">
-                  <input value="" style="width:25%; float:left;   margin-right:5px;" name="captcha" type="text" placeholder="验证码">
-                  
-                  <div style=" float:left;width:65px; margin-right:10px; height:30">
-
-                 <img style="cursor:pointer;" onclick=this.src="<?=site_url('login/code').'/'?>"+Math.random() src="<?=site_url('login/code')?>" width="65" height="30" style="border:0;" alt="看不清刷新验证码" title='看不清刷新验证码'></div>
-                 
-                 <input style="width:90px; margin-left:0px; height:33px;" name="" type="submit" value="登录">
-                    
-                </form>
-            </dd>
-            <dt class="copyr">HXCMS Copyright(C)2007-2014</dt>
-        </dl>
-
-    </div>
-
-
-</body></html>
+<body class="login">	
+	<!-- PAGE -->
+	<section id="page">
+			<!-- HEADER -->
+			<header>
+				<!-- NAV-BAR -->
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-md-offset-4">
+							<div id="logo">
+								<a href="index.html"><img src="<?=base_url('staticfile')?>/image/logo/logo.png" height="40" alt="logo name" /></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--/NAV-BAR -->
+			</header>
+			<!--/HEADER -->
+			<!-- LOGIN -->
+			<section id="login_bg" class="visible">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-md-offset-4">
+							<div class="login-box">
+								<h2 class="bigintro">登录</h2>
+								<div class="divide-40"></div>
+								<form role="form">
+								  <div class="form-group">
+									<label for="exampleInputEmail1">邮箱</label>
+									<i class="fa fa-envelope"></i>
+									<input type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入邮箱账号" >
+								  </div>
+								  <div class="form-group"> 
+									<label for="exampleInputPassword1">密码</label>
+									<i class="fa fa-lock"></i>
+									<input type="password" class="form-control" id="exampleInputPassword1"  placeholder="请输入密码">
+								  </div>
+								  <div>
+									<label class="checkbox"> <input type="checkbox" class="uniform" value=""> 记住密码</label>
+									<button type="submit" class="btn btn-danger">提交</button>
+								  </div>
+								</form>
+								<!-- SOCIAL LOGIN -->
+								<div class="divide-20"></div>
+								<div class="center">
+									<strong>使用第三方账号登录</strong>
+								</div>
+								<div class="divide-20"></div>
+								<div class="social-login center">
+									<a class="btn btn-primary btn-lg">
+										<i class="fa fa-facebook"></i>
+									</a>
+									<a class="btn btn-info btn-lg">
+										<i class="fa fa-twitter"></i>
+									</a>
+									<a class="btn btn-danger btn-lg">
+										<i class="fa fa-google-plus"></i>
+									</a>
+								</div>
+								<!-- /SOCIAL LOGIN -->
+								<div class="login-helpers">
+									<a href="#" onclick="swapScreen('forgot_bg');return false;">忘记密码?</a> <br>
+									还没有账号吗? <a href="#" onclick="swapScreen('register_bg');return false;">现在注意!
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--/LOGIN -->
+			<!-- REGISTER -->
+			<section id="register_bg" class="font-400">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-md-offset-4">
+							<div class="login-box">
+								<h2 class="bigintro">Register</h2>
+								<div class="divide-40"></div>
+								<form role="form">
+								  <div class="form-group">
+									<label for="exampleInputName">Full Name</label>
+									<i class="fa fa-font"></i>
+									<input type="text" class="form-control" id="exampleInputName" >
+								  </div>
+								  <div class="form-group">
+									<label for="exampleInputUsername">Username</label>
+									<i class="fa fa-user"></i>
+									<input type="text" class="form-control" id="exampleInputUsername" >
+								  </div>
+								  <div class="form-group">
+									<label for="exampleInputEmail1">Email address</label>
+									<i class="fa fa-envelope"></i>
+									<input type="email" class="form-control" id="exampleInputEmail1" >
+								  </div>
+								  <div class="form-group"> 
+									<label for="exampleInputPassword1">Password</label>
+									<i class="fa fa-lock"></i>
+									<input type="password" class="form-control" id="exampleInputPassword1" >
+								  </div>
+								  <div class="form-group"> 
+									<label for="exampleInputPassword2">Repeat Password</label>
+									<i class="fa fa-check-square-o"></i>
+									<input type="password" class="form-control" id="exampleInputPassword2" >
+								  </div>
+								  <div>
+									<label class="checkbox"> <input type="checkbox" class="uniform" value=""> I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+									<button type="submit" class="btn btn-success">Sign Up</button>
+								  </div>
+								</form>
+								<!-- SOCIAL REGISTER -->
+								<div class="divide-20"></div>
+								<div class="center">
+									<strong>Or register using your social account</strong>
+								</div>
+								<div class="divide-20"></div>
+								<div class="social-login center">
+									<a class="btn btn-primary btn-lg">
+										<i class="fa fa-facebook"></i>
+									</a>
+									<a class="btn btn-info btn-lg">
+										<i class="fa fa-twitter"></i>
+									</a>
+									<a class="btn btn-danger btn-lg">
+										<i class="fa fa-google-plus"></i>
+									</a>
+								</div>
+								<!-- /SOCIAL REGISTER -->
+								<div class="login-helpers">
+									<a href="#" onclick="swapScreen('login_bg');return false;"> Back to Login</a> <br>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--/REGISTER -->
+			<!-- FORGOT PASSWORD -->
+			<section id="forgot_bg">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-md-offset-4">
+							<div class="login-box">
+								<h2 class="bigintro">Reset Password</h2>
+								<div class="divide-40"></div>
+								<form role="form">
+								  <div class="form-group">
+									<label for="exampleInputEmail1">Enter your Email address</label>
+									<i class="fa fa-envelope"></i>
+									<input type="email" class="form-control" id="exampleInputEmail1" >
+								  </div>
+								  <div>
+									<button type="submit" class="btn btn-info">Send Me Reset Instructions</button>
+								  </div>
+								</form>
+								<div class="login-helpers">
+									<a href="#" onclick="swapScreen('login_bg');return false;">Back to Login</a> <br>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- FORGOT PASSWORD -->
+	</section>
+	<!--/PAGE -->
+	<!-- JAVASCRIPTS -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<!-- JQUERY -->
+	<script src="<?=base_url('third_party')?>/js/jquery/jquery-2.0.3.min.js"></script>
+	<!-- JQUERY UI-->
+	<script src="<?=base_url('third_party')?>/js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<script src="<?=base_url('third_party')?>/bootstrap-dist/js/bootstrap.min.js"></script>
+	
+	
+	<!-- UNIFORM -->
+	<script type="text/javascript" src="<?=base_url('third_party')?>/js/uniform/jquery.uniform.min.js"></script>
+	<!-- BACKSTRETCH -->
+	<script type="text/javascript" src="<?=base_url('third_party')?>/js/backstretch/jquery.backstretch.min.js"></script>
+	<!-- CUSTOM SCRIPT -->
+	<script src="<?=base_url('staticfile')?>/js/script.js"></script>
+	<script>
+		jQuery(document).ready(function() {		
+			App.setPage("login_bg");  //Set current page
+			App.init(); //Initialise plugins and elements
+		});
+	</script>
+	<script type="text/javascript">
+		function swapScreen(id) {
+			jQuery('.visible').removeClass('visible animated fadeInUp');
+			jQuery('#'+id).addClass('visible animated fadeInUp');
+		}
+	</script>
+	<!-- /JAVASCRIPTS -->
+</body>
+</html>
